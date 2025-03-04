@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clause Section</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+  <style>
+    .Heading {
+      background-color: #f6f8f8;
+      padding: 1px;
+      text-align: center;
+    }
+
+    .outer-border {
+      border: 1px solid #c8c5c5;
+      background-color: #f6f8f8;
+    }
+
+    .detail {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .editor-toolbar {
+      margin-bottom: 5px;
+    }
+
+    .editor-container {
+      border: 1px solid #ccc;
+      padding: 1px;
+      border-radius: 5px;
+      width: 100%;
+      color: #000000;
+      max-height: 24px;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 14px;
+    }
+
+    .add-clause-btn {
+      margin-bottom: 10px;
+      font-size: 12px;
+      padding: 5px 10px;
+      height: 30px;
+    }
+
+    .editor-container[contenteditable="true"]:empty:before {
+      content: attr(placeholder);
+      color: #000000;
+    }
+
+    .tab-content {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Blue Top Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Brand</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Top Nav</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Left Sidebar Nav -->
+  <div class="d-flex">
+    <nav class="bg-dark text-white p-3 position-fixed" style="top: 0; left: 0; bottom: 0; width: 250px;">
+      <h2 class="text-center">Paccess</h2>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#" id="salesPackageLink">Sales Packages</a>
+        </li>
+        <ul class="nav flex-column" id="templatesMenu" style="display:none; padding-left: 10px;">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Templates</a>
+          </li>
+        </ul>
+      </ul>
+    </nav>
+
+    <!-- Tab Content -->
+    <div class="tab-content" id="salesPackageTabsContent">
+      <div class="tab-pane fade show active" id="auctionTab" role="tabpanel" aria-labelledby="auction-tab">
+        <div class="container-fluid p-3" style="margin-left: 250px;">
+          <p>Sales Packages > Templates</p>
+
+          
+
+          <hr>
+
+          <!-- Tab Navigation -->
+  <ul class="nav nav-tabs" id="salesPackageTabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="auction-tab" data-toggle="tab" href="#auctionTab" role="tab" aria-controls="auctionTab" aria-selected="true">Auction</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="residential-tab" data-toggle="tab" href="#residentialTab" role="tab" aria-controls="residentialTab" aria-selected="false">Residential</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="rental-tab" data-toggle="tab" href="#rentalTab" role="tab" aria-controls="rentalTab" aria-selected="false">Rental</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="commercial-tab" data-toggle="tab" href="#commercialTab" role="tab" aria-controls="commercialTab" aria-selected="false">Commercial</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="legalinstructionform-tab" data-toggle="tab" href="#legalinstructionformTab" role="tab" aria-controls="legalinstructionformTab" aria-selected="false">Legal Pack Instruction Form</a>
+    </li>
+  </ul>
+
+  <!-- Tab Content -->
+  <div class="tab-content" id="salesPackageTabsContent">
+    <div class="tab-pane fade show active" id="auctionTab" role="tabpanel" aria-labelledby="auction-tab">
+      <!-- Clause Container -->
+          <div id="clauseContainer" class="row">
+            <!-- Add Clause Section (Full Width) -->
+            <div class="col-12 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <!-- Add Clause Button -->
+                  <button class="btn btn-outline-success bordert add-clause-btn" id="addClause1">+ Add Clause</button>
+
+                  <!-- Add Clause Formatting Toolbar -->
+                  <div class="editor-toolbar">
+                    <button class="btn btn-outline-primary btn-sm" id="addbold"><i class="fas fa-bold"></i> Bold</button>
+                    <button class="btn btn-outline-primary btn-sm" id="additalic"><i class="fas fa-italic"></i> Italic</button>
+                    <button class="btn btn-outline-primary btn-sm" id="addunderline"><i class="fas fa-underline"></i> Underline</button>
+                    <button class="btn btn-outline-primary btn-sm" id="addclear">Clear Formatting</button>
+                  </div>
+
+                  <!-- Editable Text Area for Add Clause area with Placeholder -->
+                  <div class="editor-container" contenteditable="true" id="editor1" placeholder="Start typing your clause here..."></div>
+                </div>
+              </div>
+            </div>
+            <!-- Clause 1 Section -->
+            <div class="col-12 col-md-4 mb-3" id="box1">
+              <div class="card">
+                <div class="card-body">
+                  <button class="btn btn-outline-success add-clause-btn" id="addClause2">Clause 1</button>
+                  <button class="btn btn-outline-danger add-clause-btn" id="deleteClause1">Delete</button>
+                  <div class="editor-toolbar">
+                    <button class="btn btn-outline-primary btn-sm" id="bold"><i class="fas fa-bold"></i> Bold</button>
+                    <button class="btn btn-outline-primary btn-sm" id="italic"><i class="fas fa-italic"></i> Italic</button>
+                    <button class="btn btn-outline-primary btn-sm" id="underline"><i class="fas fa-underline"></i> Underline</button>
+                    <button class="btn btn-outline-primary btn-sm" id="clear">Clear Formatting</button>
+                  </div>
+                  <div class="editor-container" contenteditable="true" id="editor2" placeholder="I/We hereby appoint Keith Pattinson Limited as agents with selling rights..."></div>
+                </div>
+</div>
+</div>
+</div>
+</div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Scripts -->
+  <script>
+    let clauseCounter = 4; // Initial clause counter
+
+    // Delete Clause functionality
+    document.getElementById("deleteClause1").addEventListener("click", function () {
+      document.getElementById("box1").remove();
+    });
+
+    // Add Clause functionality
+    document.getElementById("addClause1").addEventListener("click", function () {
+      clauseCounter++;
+
+      const clauseContainer = document.getElementById("clauseContainer");
+      const newClauseCard = document.createElement("div");
+      newClauseCard.classList.add("col-12", "col-md-4", "mb-3");
+      newClauseCard.innerHTML = `
+        <div class="card" id="box${clauseCounter}">
+          <div class="card-body">
+            <button class="btn btn-outline-success add-clause-btn" id="addClause${clauseCounter}">Clause ${clauseCounter}</button>
+            <button class="btn btn-outline-danger add-clause-btn" id="deleteClause${clauseCounter}">Delete</button>
+            <div class="editor-toolbar">
+              <button class="btn btn-outline-primary btn-sm" id="bold"><i class="fas fa-bold"></i> Bold</button>
+              <button class="btn btn-outline-primary btn-sm" id="italic"><i class="fas fa-italic"></i> Italic</button>
+              <button class="btn btn-outline-primary btn-sm" id="underline"><i class="fas fa-underline"></i> Underline</button>
+              <button class="btn btn-outline-primary btn-sm" id="clear">Clear Formatting</button>
+            </div>
+            <div class="editor-container" contenteditable="true" id="editor${clauseCounter}" placeholder="Your Clause ${clauseCounter} content here..."></div>
+          </div>
+        </div>
+      `;
+
+      // Append the new clause card to the container
+      clauseContainer.appendChild(newClauseCard);
+
+      // Add functionality for delete button of the new clause
+      newClauseCard.querySelector(`#deleteClause${clauseCounter}`).addEventListener("click", function () {
+        newClauseCard.remove();
+      });
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
