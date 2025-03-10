@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contract Templates</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .outer-border {
+      border: 1px solid #c8c5c5;
+      background-color: #f6f8f8;
+    }
+    .detail {
+      font-weight: bold;
+      text-align: center;
+    }
+    .Heading {
+      background-color: #f6f8f8;
+      padding: 1px;
+      text-align: center;
+    }
+
+    .outer-border {
+      border: 1px solid #c8c5c5;
+      background-color: #f6f8f8;
+    }
+
+    .detail {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .editor-toolbar {
+      margin-bottom: 5px;
+    }
+
+    .editor-container {
+      border: 1px solid #ccc;
+      padding: 1px;
+      border-radius: 5px;
+      width: 100%;
+      color: #000000;
+      max-height: 100px; 
+      overflow: auto;
+      white-space: normal;
+      font-size: 14px;
+    }
+
+    .add-clause-btn {
+      margin-bottom: 10px;
+      font-size: 12px;
+      padding: 5px 10px;
+      height: 30px;
+    }
+
+    .editor-container[contenteditable="true"]:empty:before {
+      content: attr(placeholder);
+      color: #000000;
+    }
+    
+    .sidebar {
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      background-color: black;
+      padding-top: 20px;
+    }
+    .sidebar a {
+      color: rgb(255, 255, 255);
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+    }
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+    .topnav {
+      background-color: #184e87;
+      color: #184e87;
+      padding: 10px 15px;
+      text-align: center;
+    }
+    /* Make sure the content doesn't overlap with the sidebar */
+    .content {
+      margin-left: 270px;
+    }
+   
+    .col-md-12 {
+    text-align: center;
+    }
+.outer-container {
+  border: 2px solid #7f7c7cea;
+    }
+.thicker-bottom-border {
+    border: 1px solid #ebeaea;
+    border-bottom: 5px solid #000;
+    }
+.background-color {
+  background-color: #ede9e9;
+    }
+h5 {
+  font-size
+  : 16px;
+ }  
+ .no-border {
+      border: none;
+}
+logo {
+}
+ </style>
+</head>
+<body>
+
+<!-- Top Nav Bar -->
+<div class="topnav">
+  <h3>Top Nav</h3>
+</div>
+
+<!-- Side Nav -->
+<div class="sidebar">
+    <a href="#auctionlink" id="auctionlink">
+    <i class="fas fa-cog"></i> Contract Templates
+  </a>
+</div>
+
+<!-- Main Content -->
+<div class="content">
+  <div class="container mt-5">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="auction-tab" data-toggle="tab" href="#auction" role="tab" aria-controls="auction" aria-selected="true">Auction</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="residential-tab" data-toggle="tab" href="#residential" role="tab" aria-controls="residential" aria-selected="false">Residential</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="LPIF-tab" data-toggle="tab" href="#LPIF" role="tab" aria-controls="LPIF" aria-selected="false">LPIF</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="rental-tab" data-toggle="tab" href="#rental" role="tab" aria-controls="rental" aria-selected="false" style="color: #ff0000;">Rental</a>
+      </li>
+    </ul>
+    <!--tab content -->
+    <div class="tab-content" id="myTabContent">
+        <!--tab 1 content -->
+      <div class="tab-pane fade show active" id="auction" role="tabpanel" aria-labelledby="auction-tab">
+        <!-- Clause Container -->
+              <div id="clauseContainer" class="row">
+                <!-- Add Clause Section (Full Width) -->
+                <div class="col-12 mb-3">
+                  <div class="card">
+                    <div class="card-body">
+                      <!-- Add Clause Button -->
+                      <button class="btn btn-outline-success bordert add-clause-btn" id="addClause1">+ Add Clause</button>
+
+                      <!-- Add Clause Formatting Toolbar -->
+                      <div class="editor-toolbar">
+                        <button class="btn btn-outline-primary btn-sm" id="addbold"><i class="fas fa-bold"></i> Bold</button>
+                        <button class="btn btn-outline-primary btn-sm" id="additalic"><i class="fas fa-italic"></i> Italic</button>
+                        <button class="btn btn-outline-primary btn-sm" id="addunderline"><i class="fas fa-underline"></i> Underline</button>
+                        <button class="btn btn-outline-primary btn-sm" id="addclear">Clear Formatting</button>
+                      </div>
+
+                      <!-- Editable Text Area for Add Clause area with Placeholder -->
+                      <div class="editor-container" contenteditable="true" id="editor1" placeholder="Start typing your clause here..."></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Clause 1 Section -->
+                <div class="col-12 col-md-4 mb-3" id="box1">
+                  <div class="card">
+                    <div class="card-body">
+                      <button class="btn btn-outline-success add-clause-btn" id="addClause2">Clause 1</button>
+                      <button class="btn btn-outline-danger add-clause-btn" id="deleteClause1">Delete</button>
+                      <div class="editor-toolbar">
+                        <button class="btn btn-outline-primary btn-sm" id="bold"><i class="fas fa-bold"></i> Bold</button>
+                        <button class="btn btn-outline-primary btn-sm" id="italic"><i class="fas fa-italic"></i> Italic</button>
+                        <button class="btn btn-outline-primary btn-sm" id="underline"><i class="fas fa-underline"></i> Underline</button>
+                        <button class="btn btn-outline-primary btn-sm" id="clear">Clear Formatting</button>
+                      </div>
+                      <div class="editor-container" contenteditable="true" id="editor2" placeholder="I/We hereby appoint Keith Pattinson Limited as agents with selling rights..."></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<hr>
+<p style="text-align: center;">Auction Contract Preview</p>
+<div class="logo text-center">
+    <img src="https://pattinson.blob.core.windows.net/web/1/root/pattinson-full-brand-turquoise.jpg" style="width: 20%; height: auto;">
+</div><br>
+<div class="container">
+<div class="outer-border">
+<div class="container mt-3">
+    <div class="row">
+        <div class="col p-12">
+<div class="Heading">
+<h4>Auction Contract</h4>
+</div>
+</div>
+</div>
+</div>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col p-12">
+                <div class="mb-3">
+                    <p>Client First Name</p>
+                    <input type="text" class="form-control no-border" id="Clientname" placeholder="Enter First Name" required>
+                </div>
+                <div class="mb-3">
+            <p>Client Surname</p>
+            <input type="text" class="form-control no-border" id="Clientname" placeholder="Enter Surname..." required>
+        </div>
+        <div class="mb-3">
+            <label for="textField" class="form-label">Property For Sale Address</label>
+            <textarea class="form-control custom-textarea" id="textField"  rows="5">Enter sale property addres...</textarea>
+          </div>
+          <div class="mb-3">
+            <p>Title Number<span style="font-size: 12px;"> (if known)</span></p>
+            <input type="text" class="form-control no-border" id="titlenumber" placeholder="Enter Title No...">
+        </div>
+          <div class="mb-3">
+            <label for="textField" class="form-label">Client Address</label>
+            <textarea class="form-control custom-textarea" id="clientaddres"  rows="5">Enter Client Address...</textarea>
+          </div>
+          <div class="mb-3">
+            <p>Home Telephone</p>
+            <input type="text" class="form-control no-border" id="homenumber" placeholder="Enter Home Number...">
+        </div>
+        <div class="mb-3">
+            <p>Mobile Telephone</p>
+            <input type="text" class="form-control no-border" id="mobilenumber" placeholder="Enter Mobile Number...">
+        </div>
+        <div class="mb-3">
+            <p>Email</p>
+            <input type="email" class="form-control no-border" id="email" placeholder="Enter Email...">
+        </div>
+        </div>
+        
+        <div class="col mb-6">
+            <p style="text-align: center;"><strong>Auction Package Terms</strong></p>
+        <div class="form-check"><br>
+            <input class="form-check-input" type="Radio" name="exampleRadios0" id="auctionsalesfee" value="option1" unchecked>
+            <label class="form-check-label" for="exampleRadios0">
+              <strong>Auction Sales Fee</strong> <br>I agree to pay a sales fee of 2.5% plus VAT (3% inc VAT) of the final negotiated selling price subject to a minimum fee of £2,500 plus VAT (£3,000 inc VAT).</label>
+        </div>
+        <div class="form-check"><br>
+            <input class="form-check-input" type="radio" name="exampleRadios0" id="nosalesfee" value="option2" unchecked>
+            <label class="form-check-label" for="exampleRadios0">
+              <strong>No Sales Fee</strong> <br>On the fall of the gavel (or on an agreement for the purchase of the property
+              outside the auction) the purchaser pays a Reservation Fee which is nonrefundable
+              and shall be retained by us as our fee in connection with the sale.</label>
+            </div>
+            <hr>  
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios1" id="nosalenofee" value="option1" unchecked>
+                <label class="form-check-label" for="exampleRadios1">
+                  <strong>No Sale No Fee Legal Pack & Conveyancing</strong> <br> I instruct the Auctioneer to supply a legal pack with no upfront cost, and agree that the conveyancing will be completed by the Auctioneer’s conveyancing partner. On completion, I agree to pay £1,495 inc VAT for the legal pack and conveyancing (plus disbursements). For non-domestic properties, the cost of the above would be £1,500 inc VAT (plus disbursements)</label>
+            </div>
+          <div class="form-check"><br>
+            <input class="form-check-input" type="Radio" name="exampleRadios1" id="ownsolicitor" value="option2" unchecked>
+            <label class="form-check-label" for="exampleRadios1">
+              <strong>Instructing Own Solicitor</strong><br> I will source and instruct my own solicitor to prepare a legal pack, and carry out my conveyancing, at my own cost. The legal pack will be passed to the Auctioneer within 14 days of signing this agreement.</label>
+          </div>
+          <hr>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="unconditional" value="option1">
+            <label class="form-check-label" for="exampleRadios">
+              <strong>Unconditional</strong> <br> Immediate exchange of contracts with completion taking place within 28 days (subject to any special conditions).
+            </label>
+        </div>
+        <div class="form-check"><br>
+            <input class="form-check-input" type="radio" name="exampleRadios" id="conditional" value="option2">
+            <label class="form-check-label" for="exampleRadios">
+              <strong>Conditional</strong><br> Contracts will exchange within 28 days, with a further 28 days to complete.
+            </label>
+        </div>
+        </div>
+    </div>
+        <hr>
+        <div class="container">
+        <div class="row">
+            <div class="col mb-12">
+                <div class="detail">
+                <p>The Auctioneer will only market a property for sale by auction on a sole selling rights basis, please read terms and conditions on page two of this agreement. Should the property be marketed by another agent whilst this agreement is in force you may be liable to pay two fees. It is the vendors responsibility to ensure that any existing agreements to market this property are cancelled. This agreement supersedes any previous agreement with The Auctioneer.</p>
+            </div>
+        </div>
+    </div>
+      <hr>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6 col p-2">
+            <div class="mb-6">
+                <p>Signature</p>
+                <input type="text" class="form-control no-border" id="Signature" placeholder="Signature">
+            </div>
+        </div>
+            <div class="col-md-6 col p-2">
+            <div class="mb-6">
+                <p>Date</p>
+                <input type="date" class="form-control no-border" id="date" placeholder="">
+         </div>
+            </div>
+          <div class="col-md-6 col p-2">
+            <div class="mb-6">
+                <p>Date of Birth</p>
+                <input type="date" class="form-control no-border" id="date" placeholder="">
+         </div>
+          </div>
+          <div class="col-md-6 col p-2">
+            <div class="mb-6">
+                <p>Passport / Drivers License Number</p>
+                <input type="text" class="form-control no-border" id="date" placeholder="">
+         </div>
+          </div>
+          <div class="col-md-6 col p-2">
+            <div class="mb-6">
+                <p>Signed on Behalf of Pattinson Auction</p>
+                <img src="signature.png" style="width: 50%">
+            </div>
+          </div>
+    </div>
+          <div class="mb-6 "><br>
+                <form onsubmit="showPopup(event)">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </form><br>
+          </div>
+    </div>
+    <script>
+        function showPopup(event) {
+            event.preventDefault();
+            alert("Thank You for completing your agreement, this has now been submitted.");
+            }
+    </script>
+</div>
+</div>
+</div>
+</div>
+</div>
+    <!--tab 2 content -->
+        <div class="tab-pane fade"  id="residential" role="tabpanel" aria-labelledby="residential-tab">
+          <div class="row" id="clauseContainer" >
+                <!-- Add Clause Section (Full Width) -->
+                <div class="col-12 mb-3">
+                  <div class="card ">
+                    <div class="card-body">
+                      <!-- Add Clause Button -->
+                      <button class="btn btn-outline-success bordert add-clause-btn" id="addClause1">+ Add Clause</button>
+                      <!-- Add Clause Formatting Toolbar -->
+                      <div class="editor-toolbar">
+                        <button class="btn btn-outline-primary btn-sm" id="addbold"><i class="fas fa-bold"></i> Bold</button>
+                        <button class="btn btn-outline-primary btn-sm" id="additalic"><i class="fas fa-italic"></i> Italic</button>
+                        <button class="btn btn-outline-primary btn-sm" id="addunderline"><i class="fas fa-underline"></i> Underline</button>
+                        <button class="btn btn-outline-primary btn-sm" id="addclear">Clear Formatting</button>
+                      </div>
+                      <!-- Editable Text Area for Add Clause area with Placeholder -->
+                      <div class="editor-container" contenteditable="true" id="editor1" placeholder="Start typing your clause here..."></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Clause 1 Section -->
+                <div class="col-12 col-md-4 mb-3" id="box1">
+                  <div class="card">
+                    <div class="card-body">
+                      <button class="btn btn-outline-success add-clause-btn" id="addClause2">Clause 1</button>
+                      <button class="btn btn-outline-danger add-clause-btn" id="deleteClause1">Delete</button>
+                      <div class="editor-toolbar">
+                        <button class="btn btn-outline-primary btn-sm" id="bold"><i class="fas fa-bold"></i> Bold</button>
+                        <button class="btn btn-outline-primary btn-sm" id="italic"><i class="fas fa-italic"></i> Italic</button>
+                        <button class="btn btn-outline-primary btn-sm" id="underline"><i class="fas fa-underline"></i> Underline</button>
+                        <button class="btn btn-outline-primary btn-sm" id="clear">Clear Formatting</button>
+                      </div>
+                      <div class="editor-container" contenteditable="true" id="editor2" placeholder="I/We hereby appoint Keith Pattinson Limited as agents with selling rights..."></div>
+                    </div>
+                  </div>
+                </div><hr><br>
+                
+          <div class="col-md-12 text-center">
+            <p>Residential Contract Preview</p>
+              <img src="images/Sales Logo PASSIONATE.jpg" style="width: 20%;" >
+              <br>
+          </div>
+      </div>
+      <body>
+        <div class="outer-border">
+        <div class="container mb-5">
+          <div class="heading rounded">
+          <div class="row justify-content-center mb-4">
+            <h3 class="text-center ">Residential Contract</h3>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+              <div class="mb-3">
+                  <h6 class="text-center">Vendor Details</h6>
+              </div>
+              <div class="mb-3">
+              <label for="Forename" class="form-label">Forename</label>
+            <input type="text" class="form-control" id="Forename" placeholder="Enter name" required>      
+          </div>
+          <div class="mb-3">
+              <label for="Surname" class="form-label">Surname</label>
+            <input type="text" class="form-control" id="Surname" placeholder="Enter Surname" required>
+            </div>
+            <div class="mb-3">
+              <label for="Property Address" class="form-label">Property Address</label>
+            <textarea type="text" class="form-control" id="PAddress" placeholder="Property Address" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="MarketingPrice" class="form-label">Initial Marketing Price</label>
+            <input type="text" class="form-control" id="Price" placeholder="Price (£)" required>
+            </div>
+            <div class="mb-3">
+              <label for="ClientAddress" class="form-label">Client Address<span style="font-size: 12px;" > (if diffent from the above)</span></label>
+            <input type="text" class="form-control" id="CAddress" placeholder="Enter Surname" required>
+            </div> 
+            <div class="mb-3">
+              <label for="Telephone" class="form-label">Telephone</label>
+            <input type="text" class="form-control" id="Telephone" placeholder="Enter Number" required>
+            </div>
+            <div class="mb-3">
+              <label for="Email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Email" required>
+            </div>
+            <div class="mb-3">
+              <label for="Solicitor" class="form-label">Solicitor Details</label>
+            <textarea type="text" class="form-control" id="email" placeholder="Solicitor Details" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="SolTelephone" class="form-label">Solicitor Number</label>
+            <input type="text" class="form-control" id="SolTelephone" placeholder="Enter Number" required>
+            </div>
+          </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+              <h6 class="text-center">Contract Terms</h6>
+            </div>
+            <br>
+            <div class="col-md-12">
+              <div class="mb-3">
+                <div class="whiteback bg-white">
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="SoleSelling">
+                  <label class="form-check-label" for="SoleSelling"><strong>
+                    Sole Selling Rights</strong>
+                  </label>
+                </div>        
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="MultiAgency">
+                  <label class="form-check-label" for="MultiAgency"><strong>
+                    Multi Agency</strong>
+                  </label>
+                </div>
+                </div><br>
+              <div class="mb-3">
+                <div class="mb-3 border rounded p-3 bg-white">
+                  <h6 class="text-center">Fee Details</h6>
+                  <p class="text-center" ><strong>1.25%</strong><sup> Plus VAT</sup></span><strong>(1.5%)</strong><sup> Inc VAT</sup>
+                  </p>
+                  <p class="fst-italic text-center ">Subject to a minimum of</p>
+                  <p class="text-center" ><strong>£1,500.00</strong><sup> Plus VAT</sup></span><strong>(£1,800.00)</strong><sup> Inc VAT</sup>
+                  </p>
+                </div>
+                <p class="bg-secondary text-white rounded p-3 text-center ">Where the fee is entered as a percentage it refers to the final negotiated sale price.</p>
+          </div>
+              </div>
+              <div class="mb-3 border bg-white">
+                <div class="mb-3 rounded p-2">
+                  <h6 class="text-center">Financial Services</h6>
+                </div>
+          <div class="mb-3">
+              <div class="form-check bg-white">
+                  <label class="form-check-label" for="FinancialAdvice">
+                    Are you happy for us to refer you to our in-house Financial Services Team?
+                  </label>
+                  <input class="form-check-input" type="checkbox" value="" id="FinancialAdvice">
+                </div>  
+                </div> 
+              </div>
+            <div class="mb-3"></div class="mb-3 p-4"></div>
+                <p class="text-center bg-secondary text-white rounded p-4">Please sign below to indicate your acceptance of these terms and conditionas & that you have authority to sign this document on behalf of all owners</p>
+              </div><hr>
+                <div class="row">
+                  <div class="col-md-6">
+                      <div class="mb-3">
+                      <label for="Signature" class="form-label">Signature</label>
+                    <input type="text" class="form-control" id="Signature" placeholder="Sign Here" required>      
+                  </div>
+                  <div class="mb-3">
+                      <label for="Date" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="date" placeholder="" required>      
+                  </div>
+                  <div class="mb-3">
+                      <label for="Valuer" class="form-label">Valuer</label>
+                    <input type="text" class="form-control" id="Valuer" placeholder="Valuer Name" required>      
+                  </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="mb-3">
+                          <label for="DateofBirth" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="date" placeholder="DOB" required>      
+                      </div>   
+                      <div class="mb-3">
+                          <label for="Passport" class="form-label">Passport/Driving License Number</label>
+                        <input type="text" class="form-control" id="Passport" placeholder="Enter Details" required>      
+                      </div>
+                      <div class="mb-3">
+                          <label for="Branch" class="form-label">Branch</label>
+                        <input type="text" class="form-control" id="Branch" placeholder="Branch" required>      
+                      </div>
+                  </div>
+                  <button class="btn btn-primary p-2">Sign</button><p></p>
+                  <p style="font-size: 10px;">Please only sign the above if you have read and fully understand this agreement and have been left a copy of this agreement. In compliance with anti money laundering regulations an Experian search will be carried out to verify your identity and proof of residency. This does not affect your credit file. Should this property be marketed by another agent whilst this agreement is in force, you may be liable to pay two fees. It is the vendors responsibility to ensure that any existing agreements to market this property are cancelled. SHould a purchaser be introduced whilst this agreemnt is in force or we are under notice of withdrawal, our fee will be due in full on exchange of contracts.</p>
+      </div> 
+    </div>
+      </div>
+        </div>
+        </div>
+      <!--end Residential tab-->
+
+  <!-- Start of LPIF tab-->
+      <div class="tab-pane fade" id="LPIF" role="tabpanel" aria-labelledby="LPIF-tab">
+        <div class="row" id="clauseContainer" >
+          <!-- Add Clause Section (Full Width) -->
+          <div class="col-12 mb-3">
+            <div class="card ">
+              <div class="card-body">
+                <!-- Add Clause Button -->
+                <button class="btn btn-outline-success bordert add-clause-btn" id="addClause1">+ Add Clause</button>
+                <!-- Add Clause Formatting Toolbar -->
+                <div class="editor-toolbar">
+                  <button class="btn btn-outline-primary btn-sm" id="addbold"><i class="fas fa-bold"></i> Bold</button>
+                  <button class="btn btn-outline-primary btn-sm" id="additalic"><i class="fas fa-italic"></i> Italic</button>
+                  <button class="btn btn-outline-primary btn-sm" id="addunderline"><i class="fas fa-underline"></i> Underline</button>
+                  <button class="btn btn-outline-primary btn-sm" id="addclear">Clear Formatting</button>
+                </div>
+                <!-- Editable Text Area for Add Clause area with Placeholder -->
+                <div class="editor-container" contenteditable="true" id="editor1" placeholder="Start typing your clause here..."></div>
+              </div>
+            </div>
+          </div>
+          <!-- Clause 1 Section -->
+          <div class="col-12 col-md-4 mb-3" id="box1">
+            <div class="card">
+              <div class="card-body">
+                <button class="btn btn-outline-success add-clause-btn" id="addClause2">Clause 1</button>
+                <button class="btn btn-outline-danger add-clause-btn" id="deleteClause1">Delete</button>
+                <div class="editor-toolbar">
+                  <button class="btn btn-outline-primary btn-sm" id="bold"><i class="fas fa-bold"></i> Bold</button>
+                  <button class="btn btn-outline-primary btn-sm" id="italic"><i class="fas fa-italic"></i> Italic</button>
+                  <button class="btn btn-outline-primary btn-sm" id="underline"><i class="fas fa-underline"></i> Underline</button>
+                  <button class="btn btn-outline-primary btn-sm" id="clear">Clear Formatting</button>
+                </div>
+                <div class="editor-container" contenteditable="true" id="editor2" placeholder="I/We hereby appoint Keith Pattinson Limited as agents with selling rights..."></div>
+              </div>
+            </div>
+          </div><hr><br>
+          
+          <div class="logo text-center">
+            <img src="https://pattinson.blob.core.windows.net/web/1/root/pattinson-full-brand-turquoise.jpg" style="width: 20%; height: auto;">
+          </div>
+        <div class="container mt-3 outer-container">
+            <div class="row">
+              <div class="col-md-12 header">
+                <div class="Heading pt-1">
+                <h3>Legal Pack Instruction Form</h3>
+              </div>
+            </div>
+              <div class="col-md-4 border background-color">
+                <!-- First column content -->
+                  <h5>Date</h5>        
+              </div>
+              <div class="col-md-8 border">
+                <!-- Second column content -->        
+                  <p>{date}<p>
+                  </div>
+                    <div class="col-md-4 border background-color">
+                    <!-- First column content -->
+                      <h5>Instructed By:</h5>
+                        <h5>TEAM/OFFICE</h5>        
+                  </div>
+                  <div class="col-md-8 border">
+                    <!-- Second column content -->        
+                      <p>{paname}<p>
+                    </div>
+                    <div class="col-md-4 border background-color">
+                        <!-- First column content -->
+                          <h5>Partner Agent</h5>        
+                      </div>
+                      <div class="col-md-8 border">
+                        <!-- Second column content -->        
+                          <p>{partneragent}<p>
+                        </div>
+                        <div class="col-md-4 border background-color">
+                            <!-- First column content -->
+                              <h5>Staff Member</h5>        
+                          </div>
+                          <div class="col-md-8 border">
+                            <!-- Second column content -->        
+                              <p>{createdby}<p>
+                            </div>
+                            <div class="col-md-4 border background-color">
+                                <!-- First column content -->
+                                  <h5>Client Name(s) <sub>All names required</sub></h5>        
+                              </div>
+                              <div class="col-md-8 border">
+                                <!-- Second column content -->        
+                                <input type="text" class="form-control no-border" id="Clientnames" placeholder="Enter Name..." required>
+                                </div>
+                                <div class="col-md-4 border background-color">
+                                    <!-- First column content -->
+                                      <h5>Contact Address</h5>        
+                                  </div>
+                                  <div class="col-md-8 border">
+                                    <!-- Second column content -->        
+                                    <input type="text" class="form-control no-border" id="CientAddres" placeholder="Enter Address..." required>
+                                    </div>
+                                    <div class="col-md-4 border background-color">
+                                        <!-- First column content -->
+                                          <h5>Home Telephone</h5>        
+                                      </div>
+                                      <div class="col-md-8 border">
+                                        <!-- Second column content -->        
+                                        <input type="number" class="form-control no-border" id="HomeNumber" placeholder="Enter Home Number...">
+                                        </div>
+                                        <div class="col-md-4 border background-color">
+                                            <!-- First column content -->
+                                              <h5>Mobile Number</h5>        
+                                          </div>
+                                          <div class="col-md-8 border">
+                                            <!-- Second column content -->        
+                                            <input type="number" class="form-control no-border" id="MobileNumber" placeholder="Enter Mobile Number..." required>
+                                            </div>
+                                            <div class="col-md-4 border background-color" required>
+                                                <!-- First column content -->
+                                                  <h5>Email Address</h5>        
+                                              </div>
+                                              <div class="col-md-8 border">
+                                                <!-- Second column content -->        
+                                                <input type="email" class="form-control no-border" id="Email" placeholder="Enter Email..." required>
+                                               </div>
+                                               <div class="col-md-4 thicker-bottom-border background-color">
+                                                <!-- First column content -->
+                                                  <h5>Property Address</h5>        
+                                              </div>
+                                              <div class="col-md-8 thicker-bottom-border ">
+                                                <!-- Second column content -->        
+                                                  <p>{propertyaddress}<p>
+                                               </div>   
+                                               <div class="col-md-4 thicker-bottom-border background-color">
+                                                <!-- First column content -->
+                                                  <h5>Product Required</h5>        
+                                              </div>
+                                              <div class="col-md-8 thicker-bottom-border">
+                                                <!-- Second column content -->        
+                                                  <p style="font-style: italic;">to pull from Deposit & Res Fee on Sales Package  e.g. 5% Deposit & Reserveation Fee<p>
+                                               </div> 
+                                               <div class="col-md-4 border background-color">
+                                                <!-- First column content -->
+                                                  <h5>Has the client changed their name since buying the property</h5>        
+                                              </div>
+                                              <div class="col-md-8 border">
+                                                <!-- Second column content -->        
+                                                <div class="form-group pt-3">
+                                                    <select class="form-control" id="yesNoDropdown">
+                                                        <option value=""></option>
+                                                        <option value="Yes">Yes</option>
+                                                      <option value="No">No</option>
+                                                    </select>
+                                                  </div>
+                                               </div> 
+                                               <div class="col-md-4 border background-color">
+                                                <!-- First column content -->
+                                                  <h5>If the owners are different from the client selling, please tell us why</h5>        
+                                              </div>
+                                              <div class="col-md-8 border">
+                                                <!-- Second column content -->        
+                                                <input type="text" class="form-control" id="otherinfo" placeholder="" required>
+                                               </div> 
+                                               <div class="col-md-4 border background-color">
+                                                <!-- First column content -->
+                                                  <h5>Is the Property For Sale Vacant Possession or Tenanted?</h5>        
+                                              </div>
+                                              <div class="col-md-8 border">
+                                                <!-- Second column content -->        
+                                                <div class="form-group pt-3">
+                                                    <select class="form-control" id="yesNoDropdown">
+                                                        <option value=""></option>
+                                                        <option value="Yes">Sold with Vacant Possession</option>
+                                                      <option value="No">Sold Tenanted</option>
+                                                    </select>
+                                                  </div>
+                                               </div> 
+                                               <div class="col-md-4 border background-color">
+                                                <!-- First column content -->
+                                                  <h5>Property Type<p><sub>Residential or Commercial</p></sub></h5>        
+                                              </div>
+                                              <div class="col-md-8 border">
+                                                <!-- Second column content -->        
+                                                <div class="form-group pt-3">
+                                                    <select class="form-control" id="yesNoDropdown">
+                                                        <option value=""></option>
+                                                        <option value="Residential">Residential</option>
+                                                      <option value="Commercial">Commercial</option>
+                                                    </select>
+                                                  </div>
+                                               </div> 
+                                               <div class="col-md-4 border background-color">
+                                                <!-- First column content -->
+                                                  <h5>Date of Auction</h5>        
+                                              </div>
+                                              <div class="col-md-8 border">
+                                                <!-- Second column content -->        
+                                                  <p>Online</p>                                   
+                                                </div>
+                                                <div class="col-md-4 border background-color">
+                                                  <!-- First column content -->
+                                                    <h5>Conditional or Unconditional</h5>        
+                                                </div>
+                                                <div class="col-md-8 border">
+                                                  <!-- Second column content -->        
+                                                  <div class="form-group pt-3">
+                                                      <select class="form-control" id="auctioncontracttype">
+                                                          <option value=""></option>
+                                                          <option value="Conditional">Conditional</option>
+                                                        <option value="Unconditional">Unconditional</option>
+                                                      </select>
+                                                    </div>
+                                                </div><div class="col-md-4 border background-color">
+                                                  <!-- First column content -->
+                                                    <h5>Deposit or Reservation Fee</h5>        
+                                                </div>
+                                                <div class="col-md-8 border">
+                                                  <!-- Second column content -->        
+                                                    <p>{Depositpercentage} {ReservationFeepercentage}</p>
+                                                 </div> 
+                  </div>
+              </div>
+              <div class="container mt-3 outer-container">
+                <div class="row">
+                  <div class="col-md-12 header">
+                  </div>
+                <div class="col-md-12 pt-2 text-center">     
+                  <h6>Solicitor Authority Form</h6>
+                </div>
+                <div class="col-mt-12 pt-2 text-center"> 
+                  <p>IMPORTANT - BY SIGNING THIS INSTRUCTION FORM YOU ARE PROVIDING NEXA LAW WITH YOUR FORMAL INSTRUCTION TO PREPARE AND SUBMIT AN AUCTION PACK ON YOUR BEHALF
+                    TO PATTINSON ESTATE AGENTS. IF YOU HAVE CHOSEN THE NO SALE – NO FEE OPTION YOU ARE ALSO ORDERING OUR CONVEYANCING SERVICE. ONCE THE PROPERTY HAS BEEN SOLD
+                    UNCONDITIONALLY YOU WILL BE LEGALLY OBLIGED TO PROCEED WITH YOUR SALE OF THE PROPERTY</p>
+                </div>
+                <div class="col-md-11">
+                <ol>
+                  <li>I/we hereby authorise Nexa Law:</li>
+                  <ol type="a"><li>To prepare an auction pack in respect of the property for sale</li>
+                               <li>To submit the pack to our chosen auctioneer as soon as the pack is complete</li>
+                </ol>
+                <li>I/we agree to the Terms & Conditions attached to this Instruction Form</li>
+                <li>I/we agree the costs and disbursements quoted in this Instruction Form</li>
+                <li>I/We have read Section entitled “Distance Selling - Your Rights” of the Terms & Conditions in termsvof our rights under the The Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013. We authorise you to begin working on the preparation of an Auction Pack from thevdate of this instruction and I/we acknowledge and instruct you to forward the completed Auction Pack to Pattinson Estate Agents as soon as possible.</li>
+                <li>I/We confirm we understand it is our responsibility to ensure that there are sufficient funds from any agreed sale price to redeem and charges or other indebtedness secured on the property we are selling.</li>
+                <li>I/We confirm that the information provided to you in this instruction form is true and accurate and that we have verified its contents.</li>
+              </div>
+              <div class="container mt-3 border">
+                <div class="row">
+                  <div class="col-md-6 pt-4">  
+                    <p>Signature</p>
+                    <p style="font-style: italic;">Signature field</p>
+                  </div>
+            <div class="col-md-6 pt-4">  
+              <p>Date</p>
+              <input type="date" class="form-control no-border" id="otherinfo" placeholder="" required>
+            </div>
+            <br>
+                  </div>
+                  </div>  
+            </div>
+              </div>
+        <br><p></p>
+        <div class="text-center">
+        <form>
+          <button type="submit" class="btn btn-danger">Submit</button>
+        </form>
+        <br>
+        </div>
+              </div>
+              <br>
+          </div> 
+      </div>
+    </div>
+  </div>
+      <!--end LPIF tab-->
+
+      <!--Start of Rental tab-->
+      <div class="tab-pane fade" id="rental" role="tabpanel" aria-labelledby="rental-tab">
+        <div class="row" id="clauseContainer" >
+          <!-- Add Clause Section (Full Width) -->
+          <div class="col-12 mb-3">
+            <div class="card ">
+              <div class="card-body">
+                <p>This is the Rental Tab</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div> <!--end Rental tab-->
+    </div><!-- end tab content whole-->
+  </div><!--end "container"-->
+</div><!--end "main content"-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Scripts -->
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  // The link that you want to click to open the Auction tab
+  const auctionlink = document.getElementById("auctionlink");
+
+  auctionlink.addEventListener("click", function(event) {
+    // Prevent the default anchor behavior (scrolling directly to the section)
+    event.preventDefault();
+    
+    // Activate the "Auction" tab
+    $('#myTab a[href="#auction"]').tab('show');
+    
+    // Scroll smoothly to the "Auction" tab content
+    const targetElement = document.getElementById("auction");
+    targetElement.scrollIntoView({
+      behavior: "smooth", // Smooth scroll effect
+      block: "start" // Align the element at the top of the viewport
+    });
+  });
+});
+
+let clauseCounter = 1; // Initial clause counter
+
+// Delete Clause functionality
+document.getElementById("deleteClause1").addEventListener("click", function () {
+  document.getElementById("box1").remove();
+});
+
+// Add Clause functionality
+document.getElementById("addClause1").addEventListener("click", function () {
+  clauseCounter++;
+
+  const clauseContainer = document.getElementById("clauseContainer");
+  const newClauseCard = document.createElement("div");
+  newClauseCard.classList.add("col-12", "col-md-4", "mb-3");
+  newClauseCard.innerHTML = `
+    <div class="card" id="box${clauseCounter}">
+      <div class="card-body">
+        <button class="btn btn-outline-success add-clause-btn" id="addClause${clauseCounter}">Clause ${clauseCounter}</button>
+        <button class="btn btn-outline-danger add-clause-btn" id="deleteClause${clauseCounter}">Delete</button>
+        <div class="editor-toolbar">
+          <button class="btn btn-outline-primary btn-sm" id="bold"><i class="fas fa-bold"></i> Bold</button>
+          <button class="btn btn-outline-primary btn-sm" id="italic"><i class="fas fa-italic"></i> Italic</button>
+          <button class="btn btn-outline-primary btn-sm" id="underline"><i class="fas fa-underline"></i> Underline</button>
+          <button class="btn btn-outline-primary btn-sm" id="clear">Clear Formatting</button>
+        </div>
+        <div class="editor-container" contenteditable="true" id="editor${clauseCounter}" placeholder="Your Clause ${clauseCounter} content here..."></div>
+      </div>
+    </div>
+  `;
+
+  // Append the new clause card to the container
+  clauseContainer.appendChild(newClauseCard);
+
+  // Add functionality for delete button of the new clause
+  newClauseCard.querySelector(`#deleteClause${clauseCounter}`).addEventListener("click", function () {
+    newClauseCard.remove();
+  });
+});
+
+// Use event delegation to handle click event for adding new clauses
+document.getElementById("clauseContainer").addEventListener("click", function(event) {
+  if (event.target && event.target.id === `addClause${clauseCounter}`) {
+    clauseCounter++;
+    const clauseContainer = document.getElementById("clauseContainer");
+    const newClauseCard = document.createElement("div");
+    newClauseCard.classList.add("col-12", "col-md-4", "mb-3");
+    newClauseCard.innerHTML = `
+      <div class="card" id="box${clauseCounter}">
+        <div class="card-body">
+          <button class="btn btn-outline-success add-clause-btn" id="addClause${clauseCounter}">Clause ${clauseCounter}</button>
+          <button class="btn btn-outline-danger add-clause-btn" id="deleteClause${clauseCounter}">Delete</button>
+          <div class="editor-toolbar">
+            <button class="btn btn-outline-primary btn-sm" id="bold"><i class="fas fa-bold"></i> Bold</button>
+            <button class="btn btn-outline-primary btn-sm" id="italic"><i class="fas fa-italic"></i> Italic</button>
+            <button class="btn btn-outline-primary btn-sm" id="underline"><i class="fas fa-underline"></i> Underline</button>
+            <button class="btn btn-outline-primary btn-sm" id="clear">Clear Formatting</button>
+          </div>
+          <div class="editor-container" contenteditable="true" id="editor${clauseCounter}" placeholder="Your Clause ${clauseCounter} content here..."></div>
+        </div>
+      </div>
+    `;
+    clauseContainer.appendChild(newClauseCard);
+
+    newClauseCard.querySelector(`#deleteClause${clauseCounter}`).addEventListener("click", function () {
+      newClauseCard.remove();
+    });
+  }
+});
+</script>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</script>
+</body>
+</html>
